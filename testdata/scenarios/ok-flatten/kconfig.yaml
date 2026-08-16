@@ -1,0 +1,22 @@
+version: 1
+
+options:
+  flatten: true
+
+sources:
+  merino:
+    contexts:
+      - source: default
+        profile: merino-prod
+
+profiles:
+  merino-prod:
+    cluster:
+      name: cluster-merino
+      server: https://172.16.1.100:6443
+    user:
+      name: cluster-merino-admin
+    context:
+      name: cluster-merino-admin
+
+current-context: cluster-merino-admin

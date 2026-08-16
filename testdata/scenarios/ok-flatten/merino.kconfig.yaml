@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Config
+clusters:
+- name: default
+  cluster:
+    server: https://127.0.0.1:6443
+    certificate-authority: ./certs/ca.crt
+users:
+- name: default
+  user:
+    client-certificate: ./certs/client.crt
+    client-key: ./certs/client.key
+contexts:
+- name: default
+  context:
+    cluster: default
+    user: default
+current-context: default
+preferences: {}

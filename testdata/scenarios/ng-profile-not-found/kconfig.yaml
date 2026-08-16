@@ -1,0 +1,13 @@
+version: 1
+
+sources:
+  merino:
+    contexts:
+      - source: default
+        profile: merino-prod
+
+profiles:
+  other:
+    cluster: {name: c}
+    user: {name: u}
+    context: {name: x}

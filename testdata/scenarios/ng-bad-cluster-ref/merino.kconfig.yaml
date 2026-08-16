@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Config
+clusters:
+- name: default
+  cluster:
+    server: https://127.0.0.1:6443
+    certificate-authority-data: ZHVtbXktY2E=
+users:
+- name: default
+  user:
+    client-certificate-data: ZHVtbXktY2xpZW50LWNlcnQ=
+    client-key-data: ZHVtbXktY2xpZW50LWtleQ==
+contexts:
+- name: default
+  context:
+    cluster: missing-cluster
+    user: default
+current-context: default
+preferences: {}

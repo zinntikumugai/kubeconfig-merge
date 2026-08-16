@@ -1,0 +1,41 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority-data: ZHVtbXktY2E=
+    server: https://127.0.0.1:6443
+  name: cluster-kikyo
+- cluster:
+    certificate-authority-data: ZHVtbXktY2E=
+    server: https://172.16.1.100:6443
+  name: cluster-merino
+- cluster:
+    certificate-authority-data: ZHVtbXktc3RhZ2luZy1jYQ==
+    server: https://172.16.1.101:6443
+  name: cluster-merino-stg
+contexts:
+- context:
+    cluster: cluster-kikyo
+    user: cluster-kikyo-admin
+  name: cluster-kikyo-admin
+- context:
+    cluster: cluster-merino
+    user: cluster-merino-admin
+  name: cluster-merino-admin
+- context:
+    cluster: cluster-merino-stg
+    user: cluster-merino-stg-admin
+  name: cluster-merino-stg-admin
+current-context: cluster-merino-admin
+kind: Config
+users:
+- name: cluster-kikyo-admin
+  user:
+    client-certificate-data: ZHVtbXktY2xpZW50LWNlcnQ=
+    client-key-data: ZHVtbXktY2xpZW50LWtleQ==
+- name: cluster-merino-admin
+  user:
+    client-certificate-data: ZHVtbXktY2xpZW50LWNlcnQ=
+    client-key-data: ZHVtbXktY2xpZW50LWtleQ==
+- name: cluster-merino-stg-admin
+  user:
+    token: dummy-token
