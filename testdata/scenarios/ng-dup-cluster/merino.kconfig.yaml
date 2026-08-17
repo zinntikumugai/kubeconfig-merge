@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: Config
+clusters:
+- name: kubernetes
+  cluster:
+    server: https://127.0.0.1:6443
+    certificate-authority-data: ZHVtbXktY2E=
+- name: staging
+  cluster:
+    server: https://127.0.0.2:6443
+    certificate-authority-data: ZHVtbXktc3RhZ2luZy1jYQ==
+users:
+- name: kubernetes-admin
+  user:
+    client-certificate-data: ZHVtbXktY2xpZW50LWNlcnQ=
+    client-key-data: ZHVtbXktY2xpZW50LWtleQ==
+- name: staging-admin
+  user:
+    token: dummy-token
+contexts:
+- name: kubernetes-admin@kubernetes
+  context:
+    cluster: kubernetes
+    user: kubernetes-admin
+- name: staging-admin@kubernetes
+  context:
+    cluster: staging
+    user: staging-admin
+preferences: {}

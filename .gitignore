@@ -1,2 +1,4 @@
 .env
 .claude
+/kubeconfig-merge
+/dist/

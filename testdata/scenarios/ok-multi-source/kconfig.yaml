@@ -1,0 +1,46 @@
+version: 1
+
+options:
+  flatten: false
+
+sources:
+  merino:
+    contexts:
+      - source: kubernetes-admin@kubernetes
+        profile: merino-prod
+      - source: staging-admin@kubernetes
+        profile: merino-stg
+
+  kikyo:
+    contexts:
+      - source: default
+        profile: kikyo-prod
+
+profiles:
+  merino-prod:
+    cluster:
+      name: cluster-merino
+      server: https://172.16.1.100:6443
+    user:
+      name: cluster-merino-admin
+    context:
+      name: cluster-merino-admin
+
+  merino-stg:
+    cluster:
+      name: cluster-merino-stg
+      server: https://172.16.1.101:6443
+    user:
+      name: cluster-merino-stg-admin
+    context:
+      name: cluster-merino-stg-admin
+
+  kikyo-prod:
+    cluster:
+      name: cluster-kikyo
+    user:
+      name: cluster-kikyo-admin
+    context:
+      name: cluster-kikyo-admin
+
+current-context: cluster-merino-admin

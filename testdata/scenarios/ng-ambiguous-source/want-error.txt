@@ -1,0 +1,1 @@
+source "merino": both merino.kconfig.yaml and merino.kconfig.yml exist

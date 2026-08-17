@@ -1,0 +1,19 @@
+version: 1
+
+sources:
+  merino:
+    contexts:
+      - source: kubernetes-admin@kubernetes
+        profile: a
+      - source: staging-admin@kubernetes
+        profile: b
+
+profiles:
+  a:
+    cluster: {name: same}
+    user: {name: user-a}
+    context: {name: ctx-a}
+  b:
+    cluster: {name: same}
+    user: {name: user-b}
+    context: {name: ctx-b}
