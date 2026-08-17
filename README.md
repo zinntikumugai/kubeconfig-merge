@@ -295,3 +295,7 @@ git push --tags
 - `--directory` : カレントディレクトリ以外を作業ディレクトリに指定する
 - `tls-server-name` の上書き
 - `namespace` の指定
+
+## ライセンス
+
+MIT License — Copyright (c) 2026 zinntikumugai。詳細は [LICENSE](LICENSE) を参照してください。
